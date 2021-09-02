@@ -10,7 +10,7 @@ const broadcastEventTypes = {
 };
 
 export const connectWithWebSocketMedia = (path: string) => {
-  socket = io('test.dev', { path: path });
+  socket = io('mydeployed.com', { path: path });
 
   socket.on('connection', () => {
     console.log('connected with wss server');

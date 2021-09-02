@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/websocket-services: user-feed
 spec:
   rules:
-    - host: tests.dev
+    - host: www.mydeployed.com
       http:
         paths:
           - path: /api/users/?(.*)

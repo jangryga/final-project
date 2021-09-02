@@ -1,0 +1,25 @@
+name: deploy-user-feed
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'user-feed/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: cd user-feed && docker build -t jangryga/user-feed .
+      - run: docker push jangryga/user-feed
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl kubernetes cluster kubeconfig save media-app-cluster
+      - run: kubectl rollout restart deployment user-feed-depl
