@@ -14,6 +14,7 @@ import { NotFoundError } from './errors/not-found-error';
 const app = express();
 app.set('trust proxy', true); // allow traffic to come through nginx
 app.use(json());
+
 app.use(
   cookieSession({
     signed: false,
@@ -49,7 +50,7 @@ const start = async () => {
   }
 
   app.listen(3000, () => {
-    console.log('Listening on port 3000!!');
+    console.log('Listening on port 3000!!!!!!!!');
   });
 };
 
