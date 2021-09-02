@@ -4,9 +4,9 @@ name: deploy-manifests
 on:
   push:
     branches:
-      - master
+      - main
     paths:
-      - 'k8s/**'
+      - 'infra/**'
 
 jobs:
   build:
