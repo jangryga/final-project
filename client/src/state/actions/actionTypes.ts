@@ -1,0 +1,24 @@
+// Auth
+export const SET_USER_LOGGED_IN = 'SET_USER_LOGGED_IN';
+export const SET_USER_LOGGED_OUT = 'SET_USER_LOGGED_OUT';
+export const SET_USER_LOADING = 'SET_USER_LOADING';
+export const SET_USER_LOADED = 'SET_USER_LOADED';
+export const SET_USER_SOCKET = 'SET_USER_SOCKET';
+
+// User-feed
+export const SET_ACTIVE_USERS = 'SET_ACTIVE_USERS';
+
+// Media-rooms
+export const SET_MEDIA_ROOMS = 'SET_MEDIA_ROOMS';
+
+// Room
+export const SET_IS_ROOM_HOST = 'SET_IS_ROOM_HOS';
+export const SET_CONNECT_ONLY_WITH_AUDIO = 'SET_CONNECT_ONLY_WITH_AUDIO';
+export const SET_ROOM_ID = 'SET_ROOM_ID';
+export const SET_TWILIO_ACCESS_TOKEN = 'SET_TWILIO_ACCESS_TOKEN';
+export const SET_LOADING_OVERLAY = 'SET_LOADING_OVERLAY';
+export const SET_PARTICIPANTS = 'SET_PARTICIPANTS';
+export const SET_MESSAGES = 'SET_MESSAGES';
+
+// SetRooms
+export const SET_ACTIVE_ROOMS = 'SET_ACTIVE_ROOMS';
