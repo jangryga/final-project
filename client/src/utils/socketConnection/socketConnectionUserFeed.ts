@@ -16,7 +16,7 @@ const broadcastEventTypes = {
 };
 
 export const connectWithWebSocketUserFeed = (path: string) => {
-  socket = io('test.dev', { path: path });
+  socket = io('mydeployed.com', { path: path });
   // socket = io('test.dev', { path: '/api/user-feed' });
 
   socket.on('connection', () => {
