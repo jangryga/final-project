@@ -10,7 +10,7 @@ const broadcastEventTypes = {
 };
 
 export const connectWithWebSocketMedia = (path: string) => {
-  socket = io('mydeployed.com', {
+  socket = io('www.mydeployed.com', {
     path: path,
     transports: ['websocket', 'polling', 'flashsocket'],
   });
