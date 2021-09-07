@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: ingress-service
   annotations:
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
     kubernetes.io/ingress.class: nginx
     nginx.org/websocket-services: user-feed
     nginx.ingress.kubernetes.io/use-regex: 'true'
@@ -10,7 +12,31 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-send-timeout: '3600'
     nginx.ingress.kubernetes.io/websocket-services: user-feed
 spec:
+  tls:
+    - hosts:
+        - mydeployed-com
+        - www.mydeployed.com
+      secretName: mydeployed-com
   rules:
+    - host: mydeployed.com
+      http:
+        paths:
+          - path: /api/users/?(.*)
+            backend:
+              serviceName: auth-srv
+              servicePort: 3000
+          - path: /api/user-feed/?(.*)
+            backend:
+              serviceName: user-feed-srv
+              servicePort: 3000
+          - path: /api/media/?(.*)
+            backend:
+              serviceName: media-srv
+              servicePort: 3000
+          - path: /?(.*)
+            backend:
+              serviceName: client-srv
+              servicePort: 3000
     - host: www.mydeployed.com
       http:
         paths:
