@@ -50,7 +50,7 @@ export default function SignIn() {
           <DuoIcon />
         </Avatar>
         <Typography component='h1' variant='h5'>
-          Sign in
+          Sign in now!
         </Typography>
         <Formik
           initialValues={{ email: '', password: '' }}
